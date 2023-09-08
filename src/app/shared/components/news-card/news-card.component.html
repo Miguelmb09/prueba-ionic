@@ -1,0 +1,36 @@
+
+<!-- news card-->
+<ion-card mode="ios" *ngFor="let f of feed">
+  <ion-item lines="none">
+
+    <ion-avatar class="square" slot="end">
+      <img [src]="f.img">
+    </ion-avatar>
+  
+    <!-- information -->
+    <ion-label class="ion-text-wrap">
+      <ion-badge color="primary" mode="ios">{{f.section}}</ion-badge>
+      <div class="name">{{f.title}}</div>
+      <p>{{ f.description | slice: 0:90}}...</p>
+    </ion-label>
+  </ion-item>
+  
+  <ion-item lines="none">
+  
+    <ion-buttons slot="start">
+      <!-- like and comment buttons-->
+ <ion-button (click)="addOrRemoveLike(f)" class="social-btn" fill="clear" color="primary" slot="start">
+   <ion-icon [name]="f?.isLiked ? 'heart' : 'heart-outline'"></ion-icon> {{f?.likes?.length}}
+ </ion-button>
+   <ion-button (click)="comment(f)" class="social-btn" fill="clear" color="primary" slot="start">
+     <ion-icon name="chatbox-outline"></ion-icon> {{f?.comments?.length}}
+   </ion-button>
+ 
+
+ </ion-buttons>
+<!-- See more btn -->
+ <ion-button (click)="readMore(f)" color="medium"  slot="end">
+  <span>Read more</span> 
+ </ion-button>
+  </ion-item>
+</ion-card>

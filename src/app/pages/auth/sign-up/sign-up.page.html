@@ -1,0 +1,71 @@
+<ion-content mode="md">
+
+  <!--======== Header ========-->
+  <ion-header mode="md" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+    
+        <ion-back-button  defaultHref="/">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-back-button>
+      </ion-buttons>
+    
+      
+     
+     
+      <ion-title class="ion-text-center align-to-left">New User</ion-title>
+    
+    </ion-toolbar>
+  </ion-header>
+
+
+<!--======== Form ========-->
+<div class="d-flex-center">
+<form (keyup.enter)="submit()" (ngSubmit)="submit()"
+class="ion-text-center">
+
+    <!--======== Name input ========-->
+<app-custom-input autocomplete="name" [control]="form.controls.name" type="text"
+  label="Name" icon="person-outline"></app-custom-input>
+<div class="validators" *ngIf="form.controls.name.errors &&
+  form.controls.name.touched">
+  <span *ngIf="form.controls.name.errors?.['required']"> The name is required </span>
+  <span *ngIf="form.controls.name.errors?.['minlength']"> Enter a valid name </span>
+</div>
+
+    <!--======== Email input ========-->
+    <app-custom-input autocomplete="email" [control]="form.controls.email" type="text"
+    label="Email" icon="mail-outline"></app-custom-input>
+  <div class="validators" *ngIf="form.controls.email.errors &&
+    form.controls.email.touched">
+    <span *ngIf="form.controls.email.errors?.['required']"> The email is required </span>
+    <span *ngIf="form.controls.email.errors?.['email']"> Enter a valid email </span>
+  </div>
+
+
+
+      <!--======== Password input ========-->
+<app-custom-input [control]="form.controls.password"
+  type="password" label="Password"
+  icon="lock-closed-outline"></app-custom-input>
+<div class="validators" *ngIf="form.controls.password.errors &&
+  form.controls.password.touched">
+  <span *ngIf="form.controls.password.errors?.['required']">
+    The password is required </span>
+</div>
+
+
+      <!--======== Register user btn ========-->
+<ion-button class="ion-margin-vertical"
+  [disabled]="form.invalid" type="submit" mode="ios"
+  shape="round">
+  Sign up
+  <ion-icon slot="end" name="log-in-outline"></ion-icon>
+</ion-button>
+
+
+
+</form>
+</div>
+
+</ion-content>

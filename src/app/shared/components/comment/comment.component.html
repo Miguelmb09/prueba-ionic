@@ -1,0 +1,46 @@
+<app-header [isModal]="true" title="Comment Section"></app-header>
+
+<ion-content>
+
+
+    <!--======== Recents comments =========-->
+  <ion-item class="comment-item" *ngFor="let c of comments">
+    <ion-icon slot="start" src="/assets/icon/avatar.svg"></ion-icon>
+    <ion-label>
+      <div>{{c.user.name}} </div>
+      <p>{{c.comment}} </p>
+      <div style="font-size: 12px;">{{c?.date?.toDate() | dateAgo }} </div>
+    </ion-label>
+  </ion-item>
+
+
+  <!--======== Empty comments =========-->
+  <div class="empty ion-text-center" *ngIf="!comments.length">
+    <ion-icon name="chatbubbles"></ion-icon>
+    <p>No comments yet</p>
+    <p>Be the First to Comment.</p>
+
+  </div>
+
+</ion-content>
+
+<!--======== Send content =========-->
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-item lines="none" class="comment-input">
+      <ion-textarea [clearOnEdit]="true" [formControl]="message"
+        placeholder="Comment something"></ion-textarea>
+
+      <ion-buttons slot="end">
+        <!--======== Send message =========-->
+        <ion-button (click)="newComment()" color="primary" class="send-btn" slot="end" fill="solid" shape="round"
+           *ngIf="message.valid">
+           <ion-icon name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-item>
+
+  </ion-toolbar>
+</ion-footer>

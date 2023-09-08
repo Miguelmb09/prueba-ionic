@@ -1,0 +1,56 @@
+<ion-content mode="ios">
+
+
+  <!--======== Title ========-->
+  <h2 class="ion-text-center ion-no-margin ion-padding-top">Log in</h2>
+
+    <!--======== Form ========-->
+  <div class="d-flex-center">
+      <form (keyup.enter)="submit()" (ngSubmit)="submit()"
+          class="ion-text-center">
+            <!--======== Email input ========-->
+          <app-custom-input autocomplete="email"
+              [control]="form.controls.email" type="text"
+              label="Email" icon="mail-outline"></app-custom-input>
+          <div class="validators" *ngIf="form.controls.email.errors &&
+              form.controls.email.touched">
+              <span *ngIf="form.controls.email.errors?.['required']"> The email is required </span>
+              <span *ngIf="form.controls.email.errors?.['email']"> Enter a valid email </span>
+          </div>
+
+            <!--======== Password input ========-->
+          <app-custom-input [control]="form.controls.password"
+              type="password" label="Password"
+              icon="lock-closed-outline"></app-custom-input>
+          <div class="validators" *ngIf="form.controls.password.errors &&
+              form.controls.password.touched">
+              <span *ngIf="form.controls.password.errors?.['required']">
+                The password is required </span>
+          </div>
+
+              <!--======== Login btn ========-->
+          <ion-button *ngIf="!loading" class="ion-margin-vertical"
+              [disabled]="form.invalid" type="submit" mode="ios"
+              shape="round">
+              Login
+              <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          </ion-button>
+
+                  <!--======== Loading spinner ========-->
+          <ion-button *ngIf="loading" class="ion-margin-vertical"
+              disabled mode="ios"
+              shape="round">
+              <ion-spinner name="crescent"></ion-spinner>
+          </ion-button>
+
+                  <!--======== Sign up btn ========-->
+          <div class="sign-up"><div>You don't have account?</div>
+              <ion-button mode="ios" routerLink="sign-up"
+                  class="ion-margin-vertical" shape="round">
+                  Register
+                  <ion-icon slot="end" name="person-add-outline"></ion-icon>
+              </ion-button>
+          </div>
+      </form>
+  </div>
+</ion-content>

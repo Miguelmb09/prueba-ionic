@@ -1,0 +1,7 @@
+{
+  "name": "sports-wire",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

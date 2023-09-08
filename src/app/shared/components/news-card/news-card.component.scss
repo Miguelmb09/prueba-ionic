@@ -1,0 +1,41 @@
+.square {
+    --border-radius: 15%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  ion-item {
+    --background: transparent;
+  }
+  
+  del {
+    font-size: 13px;
+    padding-left: 5px;
+  }
+  
+  
+  .price-badge {
+    font-size: 18px;
+    position: relative;
+    top: 5px;
+  }
+  
+  ion-card{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .name{
+    font-weight: bold;
+    font-size: 17px;
+    padding-bottom: 10px;
+  }
+
+  
+
+    .social-btn {
+      
+        ion-icon{
+          padding-right: 2px;
+        }
+    }
